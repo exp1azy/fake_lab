@@ -1,70 +1,117 @@
 ﻿namespace FakeLab
 {
-    internal class DateGenerator : BaseGenerator
+    internal class DateGenerator
     {
-        internal DateGenerator()
+        private readonly Random _random;
+
+        internal DateGenerator(Random random)
         {
-            Rand ??= new Random();
+            _random = random;
         }
 
-        internal DateTime GenerateDateTime() => new(
-            Rand.Next(DateTime.MinValue.Year, DateTime.MaxValue.Year),
-            Rand.Next(DateTime.MinValue.Month, DateTime.MaxValue.Month),
-            Rand.Next(DateTime.MinValue.Day, DateTime.MaxValue.Day),
-            Rand.Next(DateTime.MinValue.Hour, DateTime.MinValue.Hour),
-            Rand.Next(DateTime.MinValue.Minute, DateTime.MinValue.Minute),
-            Rand.Next(DateTime.MinValue.Second, DateTime.MinValue.Second)
-        );
+        internal DateTime GenerateDateTime()
+        {
+            int year = _random.Next(DateTime.MinValue.Year, DateTime.MaxValue.Year + 1);
+            int month = _random.Next(1, 13);
+            int day = _random.Next(1, DateTime.DaysInMonth(year, month) + 1);
 
-        internal DateTime GenerateDateTimeByInterval(DateTime from, DateTime to) => new(
-            Rand.Next(from.Year, to.Year), 
-            Rand.Next(from.Month, to.Month), 
-            Rand.Next(from.Day, to.Day),
-            Rand.Next(from.Hour, to.Hour),
-            Rand.Next(from.Minute, to.Minute),
-            Rand.Next(from.Second, to.Second)
-        );
+            int hour = _random.Next(0, 24);
+            int minute = _random.Next(0, 60);
+            int second = _random.Next(0, 60);
 
-        internal DateTime GenerateDateTimeFrom(DateTime from) => new(
-            Rand.Next(from.Year, DateTime.MaxValue.Year), 
-            Rand.Next(from.Month, DateTime.MaxValue.Month), 
-            Rand.Next(from.Day, DateTime.MaxValue.Day),
-            Rand.Next(from.Hour, DateTime.MaxValue.Hour),
-            Rand.Next(from.Minute, DateTime.MaxValue.Minute),
-            Rand.Next(from.Second, DateTime.MaxValue.Second)
-        );
+            return new DateTime(year, month, day, hour, minute, second);
+        }
 
-        internal DateTime GenerateDateTimeTo(DateTime to) => new(
-            Rand.Next(DateTime.MinValue.Year, to.Year), 
-            Rand.Next(DateTime.MinValue.Month, to.Month), 
-            Rand.Next(DateTime.MinValue.Day, to.Day),
-            Rand.Next(DateTime.MinValue.Hour, to.Hour),
-            Rand.Next(DateTime.MinValue.Minute, to.Minute),
-            Rand.Next(DateTime.MinValue.Second, to.Second)
-        );
+        internal DateTime GenerateDateTimeByInterval(DateTime from, DateTime to)
+        {
+            DateTime result;
 
-        internal DateOnly GenerateDateOnly() => new(
-            Rand.Next(DateTime.MinValue.Year, DateTime.MaxValue.Year),
-            Rand.Next(DateTime.MinValue.Month, DateTime.MaxValue.Month),
-            Rand.Next(DateTime.MinValue.Day, DateTime.MaxValue.Day)
-        );
+            do
+            {
+                int year = _random.Next(from.Year, to.Year + 1);
+                int month = _random.Next(1, 13);
+                int day = _random.Next(1, DateTime.DaysInMonth(year, month) + 1);
 
-        internal DateOnly GenerateDateOnlyByInterval(DateOnly from, DateOnly to) => new(
-            Rand.Next(from.Year, to.Year),
-            Rand.Next(from.Month, to.Month),
-            Rand.Next(from.Day, to.Day)
-        );
+                int hour = _random.Next(0, 24);
+                int minute = _random.Next(0, 60);
+                int second = _random.Next(0, 60);
 
-        internal DateOnly GenerateDateOnlyFrom(DateOnly from) => new(
-            Rand.Next(from.Year, DateTime.MaxValue.Year),
-            Rand.Next(from.Month, DateTime.MaxValue.Month),
-            Rand.Next(from.Day, DateTime.MaxValue.Day)
-        );
+                result = new DateTime(year, month, day, hour, minute, second);
+            } 
+            while (result < from || result > to);
 
-        internal DateOnly GenerateDateOnlyTo(DateOnly to) => new(
-            Rand.Next(DateTime.MinValue.Year, to.Year),
-            Rand.Next(DateTime.MinValue.Month, to.Month),
-            Rand.Next(DateTime.MinValue.Day, to.Day)
-        );
+            return result;
+        }
+
+        internal DateOnly GenerateDateOnly()
+        {
+            int year = _random.Next(DateTime.MinValue.Year, DateTime.MaxValue.Year + 1);
+            int month = _random.Next(1, 13);
+            int day = _random.Next(1, DateTime.DaysInMonth(year, month) + 1);
+
+            return new DateOnly(year, month, day);
+        }
+
+        internal DateOnly GenerateDateOnlyByInterval(DateOnly from, DateOnly to)
+        {
+            DateOnly result;
+
+            do
+            {
+                int year = _random.Next(from.Year, to.Year + 1);
+                int month = _random.Next(1, 13);
+                int day = _random.Next(1, DateTime.DaysInMonth(year, month) + 1);
+
+                result = new DateOnly(year, month, day);
+            }
+            while (result < from || result > to);
+
+            return result;
+        }
+
+        internal TimeOnly GenerateTimeOnly()
+        {
+            int hour = _random.Next(0, 24);
+            int minute = _random.Next(0, 60);
+            int second = _random.Next(0, 60);
+            int millisecond = _random.Next(0, 1000);
+
+            return new TimeOnly(hour, minute, second, millisecond);
+        }
+
+        internal TimeOnly GenerateTimeOnlyByInterval(TimeOnly from, TimeOnly to)
+        {
+            TimeOnly result;
+
+            do
+            {
+                int hour = _random.Next(from.Hour, to.Hour + 1);
+                int minute = _random.Next(from.Minute, to.Minute + 1);
+                int second = _random.Next(from.Second, to.Second + 1);
+                int millisecond = _random.Next(from.Millisecond, to.Millisecond + 1);
+
+                result = new TimeOnly(hour, minute, second, millisecond);
+            }
+            while (result < from || result > to);
+
+            return result;
+        }
+
+        internal TimeSpan GenerateTimeSpan()
+        {
+            int days = _random.Next(0, 30);
+            int hours = _random.Next(0, 24);
+            int minutes = _random.Next(0, 60);
+            int seconds = _random.Next(0, 60);
+            int milliseconds = _random.Next(0, 1000);
+
+            return new TimeSpan(days, hours, minutes, seconds, milliseconds);
+        }
+
+        internal TimeSpan GenerateTimeSpanByInterval(TimeSpan from, TimeSpan to)
+        {
+            long ticks = _random.NextInt64(from.Ticks, to.Ticks + 1);
+            return new TimeSpan(ticks);
+        }
     }
 }

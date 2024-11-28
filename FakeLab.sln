@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeLab", "FakeLab\FakeLab.csproj", "{77BC2645-1F46-4C8B-A294-C0DF328671B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeLab.Test", "FakeLab.Test\FakeLab.Test.csproj", "{1BF77B8B-FB03-4209-B8E3-C224A0339606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{77BC2645-1F46-4C8B-A294-C0DF328671B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77BC2645-1F46-4C8B-A294-C0DF328671B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77BC2645-1F46-4C8B-A294-C0DF328671B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF77B8B-FB03-4209-B8E3-C224A0339606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF77B8B-FB03-4209-B8E3-C224A0339606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF77B8B-FB03-4209-B8E3-C224A0339606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF77B8B-FB03-4209-B8E3-C224A0339606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
