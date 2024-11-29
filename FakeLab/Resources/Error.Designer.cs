@@ -61,11 +61,38 @@ namespace FakeLab.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Cannot cast value at [{0}, {1}] of type &apos;{2}&apos; to &apos;{3}&apos;..
+        /// </summary>
+        internal static string CastError {
+            get {
+                return ResourceManager.GetString("CastError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Cyclic reference detected for type &apos;{0}&apos;..
         /// </summary>
         internal static string CyclicReferenceError {
             get {
                 return ResourceManager.GetString("CyclicReferenceError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The range is outside the valid boundaries of the numeric type..
+        /// </summary>
+        internal static string InfiniteError {
+            get {
+                return ResourceManager.GetString("InfiniteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Incorrect range of &apos;{0}&apos; and &apos;{1}&apos; values..
+        /// </summary>
+        internal static string InvalidDecimalRangeError {
+            get {
+                return ResourceManager.GetString("InvalidDecimalRangeError", resourceCulture);
             }
         }
         

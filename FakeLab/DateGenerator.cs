@@ -110,7 +110,7 @@
 
         internal TimeSpan GenerateTimeSpanByInterval(TimeSpan from, TimeSpan to)
         {
-            long ticks = _random.NextInt64(from.Ticks, to.Ticks + 1);
+            long ticks = _random.NextInt64(from.Ticks, to.Ticks);
             return new TimeSpan(ticks);
         }
     }

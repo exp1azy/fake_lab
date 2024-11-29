@@ -135,4 +135,13 @@
   <data name="UnknownNumericalValue" xml:space="preserve">
     <value>Numerical value '{0}' is unknown.</value>
   </data>
+  <data name="CastError" xml:space="preserve">
+    <value>Cannot cast value at [{0}, {1}] of type '{2}' to '{3}'.</value>
+  </data>
+  <data name="InvalidDecimalRangeError" xml:space="preserve">
+    <value>Incorrect range of '{0}' and '{1}' values.</value>
+  </data>
+  <data name="InfiniteError" xml:space="preserve">
+    <value>The range is outside the valid boundaries of the numeric type.</value>
+  </data>
 </root>

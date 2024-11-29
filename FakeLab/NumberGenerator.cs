@@ -9,25 +9,30 @@
             _random = random;
         }
 
-        internal byte GenerateByte(byte min = byte.MinValue, byte max = byte.MaxValue) =>
+        internal byte GenerateByte(byte min, byte max) =>
             (byte)_random.Next(min, max);
 
-        internal short GenerateShort(short min = short.MinValue, short max = short.MaxValue) =>
+        internal short GenerateShort(short min, short max) =>
             (short)_random.Next(min, max);
 
-        internal int GenerateInt(int min = int.MinValue, int max = int.MaxValue) =>
+        internal int GenerateInt(int min, int max) =>
             _random.Next(min, max);
 
-        internal long GenerateLong(long min = long.MinValue, long max = long.MaxValue) =>
+        internal long GenerateLong(long min, long max) =>
             _random.NextInt64(min, max);
 
-        internal double GenerateDouble(double min = double.MinValue, double max = double.MaxValue) =>
+        internal double GenerateDouble(double min, double max) =>
             _random.NextDouble() * (max - min) + min;
 
-        internal float GenerateFloat(float min = float.MinValue, float max = float.MaxValue) => 
+        internal float GenerateFloat(float min, float max) => 
             (float)(_random.NextDouble() * (max - min) + min);
 
-        internal decimal GenerateDecimal(decimal min = decimal.MinValue, decimal max = decimal.MaxValue) => 
-            min + (decimal)(_random.NextDouble() * (double)(max - min));
+        internal decimal GenerateDecimal(decimal min, decimal max)
+        {
+            var range = max - min;
+            double randomFactor = _random.NextDouble();
+
+            return min + (range * (decimal)randomFactor);
+        }
     }
 }

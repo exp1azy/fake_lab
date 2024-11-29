@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab.Test\\FakeLab.Test.csproj": {}
+    "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab.Test\\FakeLab.Test.csproj": {
+    "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab.Test\\FakeLab.Test.csproj",
+        "projectUniqueName": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
         "projectName": "FakeLab.Test",
-        "projectPath": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab.Test\\FakeLab.Test.csproj",
-        "packagesPath": "C:\\Users\\user41\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab.Test\\obj\\",
+        "projectPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
+        "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user41\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "\\\\host109\\nupkg": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\FakeLab.csproj": {
-                "projectPath": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\FakeLab.csproj"
+              "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj": {
+                "projectPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj"
               }
             }
           }
@@ -74,20 +73,20 @@
         }
       }
     },
-    "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\FakeLab.csproj": {
+    "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\FakeLab.csproj",
+        "projectUniqueName": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj",
         "projectName": "FakeLab",
-        "projectPath": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\FakeLab.csproj",
-        "packagesPath": "C:\\Users\\user41\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user41\\source\\repos\\FakeLab\\FakeLab\\obj\\",
+        "projectPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj",
+        "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user41\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -96,7 +95,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "\\\\host109\\nupkg": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -14,6 +14,8 @@
 
         public DateOnly Birth { get; set; }
 
+        public DateTime Created { get; set; }
+ 
         public Role Role { get; set; }
 
         public List<Role> Roles { get; set; }
@@ -23,6 +25,8 @@
         public string[] Strings { get; set; }
 
         private string _email;
+
+        private object Obj { get; set; }
     }
 
     public enum Role

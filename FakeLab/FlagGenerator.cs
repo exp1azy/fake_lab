@@ -9,6 +9,6 @@
             _random = random;
         }
 
-        internal bool GenerateBool() => _random.Next(2) == 1;
+        internal bool GenerateBoolean() => _random.Next(2) == 1;
     }
 }
