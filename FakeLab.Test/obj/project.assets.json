@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
+      "projectUniqueName": "D:\\projects\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
       "projectName": "FakeLab.Test",
-      "projectPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
+      "projectPath": "D:\\projects\\fake_lab\\FakeLab.Test\\FakeLab.Test.csproj",
       "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab.Test\\obj\\",
+      "outputPath": "D:\\projects\\fake_lab\\FakeLab.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj": {
-              "projectPath": "C:\\Users\\anton\\Source\\Repos\\fake_lab\\FakeLab\\FakeLab.csproj"
+            "D:\\projects\\fake_lab\\FakeLab\\FakeLab.csproj": {
+              "projectPath": "D:\\projects\\fake_lab\\FakeLab\\FakeLab.csproj"
             }
           }
         }

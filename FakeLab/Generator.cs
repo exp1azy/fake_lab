@@ -111,9 +111,9 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = false;
-            var result = (object[])GenerateRequiredCollection(typeof(TObject[]), count);
+            var objectArray = (object[])GenerateRequiredCollection(typeof(TObject[]), count);
 
-            return Array.ConvertAll(result, (item) => (TObject)item);
+            return Array.ConvertAll(objectArray, (item) => (TObject)item);
         }
 
         /// <summary>
@@ -127,9 +127,9 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = false;
-            var result = (object[,])GenerateRequiredCollection(typeof(TObject[,]), count);
+            var objectMatrix = (object[,])GenerateRequiredCollection(typeof(TObject[,]), count);
 
-            return ArrayConverter.ConvertToTypedArray<TObject>(result);
+            return ArrayConverter.ConvertToTypedMatrix<TObject>(objectMatrix);
         }
 
         /// <summary>
@@ -143,6 +143,7 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = true;
+
             return (IEnumerable<TObject>)GenerateRequiredCollection(typeof(IEnumerable<TObject>), count);
         }
 
@@ -157,6 +158,7 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = true;
+
             return (List<TObject>)GenerateRequiredCollection(typeof(List<TObject>), count);
         }
 
@@ -171,6 +173,7 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = true;
+
             return (Queue<TObject>)GenerateRequiredCollection(typeof(Queue<TObject>), count);
         }
 
@@ -185,6 +188,7 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = true;
+
             return (Stack<TObject>)GenerateRequiredCollection(typeof(Stack<TObject>), count);
         }
 
@@ -199,6 +203,7 @@ namespace FakeLab
         {
             _currentType = typeof(TObject);
             _isCollection = true;
+
             return (HashSet<TObject>)GenerateRequiredCollection(typeof(HashSet<TObject>), count);
         }
 

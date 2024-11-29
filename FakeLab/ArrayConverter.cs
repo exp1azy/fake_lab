@@ -26,31 +26,27 @@ namespace FakeLab
             return matrix;
         }
 
-        internal static TObject[,] ConvertToTypedArray<TObject>(object[,] sourceArray)
+        internal static TObject[,] ConvertToTypedMatrix<TObject>(object[,] sourceMatrix)
         {
-            int rows = sourceArray.GetLength(0);
-            int cols = sourceArray.GetLength(1);
+            int rows = sourceMatrix.GetLength(0);
+            int cols = sourceMatrix.GetLength(1);
 
-            TObject[,] typedArray = new TObject[rows, cols];
+            TObject[,] typedMatrix = new TObject[rows, cols];
 
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    object value = sourceArray[i, j];
+                    object value = sourceMatrix[i, j];
 
-                    if (value is TObject typedValue)
-                    {
-                        typedArray[i, j] = typedValue;
-                    }
-                    else
-                    {
-                        throw new CastException(Error.CastError, i.ToString(), j.ToString(), value?.GetType().FullName!, typeof(TObject).FullName!);
-                    }
+                    if (value is TObject typedValue)                   
+                        typedMatrix[i, j] = typedValue;                  
+                    else                   
+                        throw new CastException(Error.CastError, i.ToString(), j.ToString(), value?.GetType().FullName!, typeof(TObject).FullName!);                  
                 }
             }
 
-            return typedArray;
+            return typedMatrix;
         }
     }
 }
