@@ -1,9 +1,6 @@
 ﻿namespace FakeLab.Exceptions
 {
-    internal class InvalidRangeException : Exception
+    internal class InvalidRangeException(string error, params string[] values) : Exception(string.Format(error, values))
     {
-        public InvalidRangeException() : base() { }
-        public InvalidRangeException(string message) : base(message) { }
-        public InvalidRangeException(string message, Exception innerException) : base(message, innerException) { }
     }
 }

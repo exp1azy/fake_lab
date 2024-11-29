@@ -59,5 +59,59 @@ namespace FakeLab.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cyclic reference detected for type &apos;{0}&apos;..
+        /// </summary>
+        internal static string CyclicReferenceError {
+            get {
+                return ResourceManager.GetString("CyclicReferenceError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Generated value type &apos;{0}&apos; is not assignable to property type &apos;{1}&apos;..
+        /// </summary>
+        internal static string InvalidPropertyAssignment {
+            get {
+                return ResourceManager.GetString("InvalidPropertyAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Length cannot be less than or equal to zero..
+        /// </summary>
+        internal static string LengthArgumentError {
+            get {
+                return ResourceManager.GetString("LengthArgumentError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &apos;{0}&apos; cannot be greater than &apos;{1}&apos;..
+        /// </summary>
+        internal static string RangeError {
+            get {
+                return ResourceManager.GetString("RangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Numerical value &apos;{0}&apos; is unknown..
+        /// </summary>
+        internal static string UnknownNumericalValue {
+            get {
+                return ResourceManager.GetString("UnknownNumericalValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Object type &apos;{0}&apos; is not supported..
+        /// </summary>
+        internal static string UnsupportedTypeError {
+            get {
+                return ResourceManager.GetString("UnsupportedTypeError", resourceCulture);
+            }
+        }
     }
 }

@@ -1,9 +1,6 @@
 ﻿namespace FakeLab.Exceptions
 {
-    public class UnsupportedTypeException : Exception
+    public class UnsupportedTypeException(string error, params string[] values) : Exception(string.Format(error, values))
     {
-        public UnsupportedTypeException() : base() { }
-        public UnsupportedTypeException(string message) : base(message) { }
-        public UnsupportedTypeException(string message, Exception innerException) : base(message, innerException) { }
     }
 }

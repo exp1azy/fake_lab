@@ -14,7 +14,7 @@ namespace FakeLab
             _random = random;       
         }
 
-        internal string GenerateString(int length = 10, GenerateStringParams generateParams = GenerateStringParams.Randomly, bool includeDigits = true)
+        internal string GenerateString(int length = 10, GenerateTextParams generateParams = GenerateTextParams.Randomly, bool includeDigits = true)
         {
             var stringBuilder = new StringBuilder(length);
 
@@ -30,11 +30,11 @@ namespace FakeLab
                     }                      
                 }
 
-                if (generateParams == GenerateStringParams.Uppercase)
+                if (generateParams == GenerateTextParams.Uppercase)
                 {
                     stringBuilder.Append(_chars[_random.Next(_chars.Length)].ToString().ToUpper());
                 }                
-                else if (generateParams == GenerateStringParams.Lowercase)
+                else if (generateParams == GenerateTextParams.Lowercase)
                 {
                     stringBuilder.Append(_chars[_random.Next(_chars.Length)]);
                 }                 

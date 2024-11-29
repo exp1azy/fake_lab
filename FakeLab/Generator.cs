@@ -1,5 +1,6 @@
 ﻿using FakeLab.Exceptions;
-using System.Collections.ObjectModel;
+using FakeLab.Resources;
+using System.Numerics;
 using System.Reflection;
 
 namespace FakeLab
@@ -7,159 +8,147 @@ namespace FakeLab
     public class Generator
     {
         private readonly GeneratorFactory _factory;
+        private Type _currentType;
 
         public Generator()
         {
             _factory = new GeneratorFactory(new Random());
         }
 
-        public TEntity GenerateEntity<TEntity>() where TEntity : class, new() => 
-            (TEntity)GenerateRequiredObject(typeof(TEntity));
-
-        public TEnum GenerateEnum<TEnum>() where TEnum : Enum =>
-            GenerateRequiredEnum<TEnum>();
-
-        public IEnumerable<TObject> GenerateEnumerable<TObject>(int count = 10) =>
-            GenerateCollection<TObject>(count);
+        public TEntity GenerateEntity<TEntity>() where TEntity : class, new()
+        {
+            _currentType = typeof(TEntity);
+            return (TEntity)GenerateRequiredObject(typeof(TEntity));
+        }
             
-        public List<TObject> GenerateList<TObject>(int count = 10) =>
-            [.. GenerateCollection<TObject>(count)];
+        public TEnum GenerateEnum<TEnum>() where TEnum : Enum =>
+            (TEnum)GenerateRequiredEnum(typeof(TEnum));
 
         public TObject[] GenerateArray<TObject>(int count = 10) =>
-            GenerateRequiredArray<TObject>(count);
+            (TObject[])GenerateRequiredCollection(typeof(TObject[]), count);
+
+        public IEnumerable<TObject> GenerateEnumerable<TObject>(int count = 10) =>
+            (IEnumerable<TObject>)GenerateRequiredCollection(typeof(IEnumerable<TObject>), count);
+            
+        public List<TObject> GenerateList<TObject>(int count = 10) =>
+            (List<TObject>)GenerateRequiredCollection(typeof(List<TObject>), count);
+
+        public Queue<TObject> GenerateQueue<TObject>(int count = 10) =>
+            (Queue<TObject>)GenerateRequiredCollection(typeof(Queue<TObject>), count);
+
+        public Stack<TObject> GenerateStack<TObject>(int count = 10) =>
+            (Stack<TObject>)GenerateRequiredCollection(typeof(Stack<TObject>), count);
+
+        public HashSet<TObject> GenerateHashSet<TObject>(int count = 10) =>
+            (HashSet<TObject>)GenerateRequiredCollection(typeof(HashSet<TObject>), count);
+
+        public LinkedList<TObject> GenerateLinkedList<TObject>(int count = 10) =>
+            (LinkedList<TObject>)GenerateRequiredCollection(typeof(LinkedList<TObject>), count);
+
+        public SortedSet<TObject> GenerateSortedSet<TObject>(int count = 10) =>
+            (SortedSet<TObject>)GenerateRequiredCollection(typeof(SortedSet<TObject>), count);      
 
         public bool GenerateBool() => _factory.FlagGenerator.GenerateBool();    
         public char GenerateChar() => _factory.TextGenerator.GenerateChar();
+
         public DateTime GenerateDateTime() => _factory.DateGenerator.GenerateDateTime();
         public DateOnly GenerateDateOnly() => _factory.DateGenerator.GenerateDateOnly();
         public TimeOnly GenerateTimeOnly() => _factory.DateGenerator.GenerateTimeOnly();
         public TimeSpan GenerateTimeSpan() => _factory.DateGenerator.GenerateTimeSpan();
 
-        public string GenerateString(int length = 10, GenerateStringParams generateParams = GenerateStringParams.Randomly, bool includeDigits = true)
+        public DateTime GenerateDateTimeByInterval(DateTime from, DateTime to) => 
+            GenerateByInterval(from, to, _factory.DateGenerator.GenerateDateTimeByInterval);
+
+        public DateOnly GenerateDateOnlyByInterval(DateOnly from, DateOnly to) =>
+            GenerateByInterval(from, to, _factory.DateGenerator.GenerateDateOnlyByInterval);
+
+        public TimeSpan GenerateTimeSpanByInterval(TimeSpan from, TimeSpan to) =>
+            GenerateByInterval(from, to, _factory.DateGenerator.GenerateTimeSpanByInterval);
+
+        public TimeOnly GenerateTimeOnlyByInterval(TimeOnly from, TimeOnly to) =>
+            GenerateByInterval(from, to, _factory.DateGenerator.GenerateTimeOnlyByInterval);
+
+        public string GenerateString(int length = 10, GenerateTextParams generateParams = GenerateTextParams.Randomly, bool includeDigits = true)
         {
             if (length <= 0)
-                throw new ArgumentException();
+                throw new ArgumentException(Error.LengthArgumentError);
 
             return _factory.TextGenerator.GenerateString(length, generateParams, includeDigits);
         }
 
-        public DateTime GenerateDateTimeByInterval(DateTime from, DateTime to)
+        public TNumeric GenerateNumericValue<TNumeric>(TNumeric min, TNumeric max) where TNumeric : INumber<TNumeric>
         {
-            if (from > to)
-                throw new InvalidRangeException();
+            var type = typeof(TNumeric);
 
-            return _factory.DateGenerator.GenerateDateTimeByInterval(from, to);
-        }
-        
-        public DateOnly GenerateDateOnlyByInterval(DateOnly from, DateOnly to)
-        {
-            if (from > to)
-                throw new InvalidRangeException();
+            if (type == typeof(byte))
+                return (TNumeric)(object)GenerateRequiredNumericValue((byte)(object)min, (byte)(object)max, _factory.NumberGenerator.GenerateByte);
+            if (type == typeof(short))
+                return (TNumeric)(object)GenerateRequiredNumericValue((short)(object)min, (short)(object)max, _factory.NumberGenerator.GenerateShort);
+            if (type == typeof(int))
+                return (TNumeric)(object)GenerateRequiredNumericValue((int)(object)min, (int)(object)max, _factory.NumberGenerator.GenerateInt);
+            if (type == typeof(long))
+                return (TNumeric)(object)GenerateRequiredNumericValue((long)(object)min, (long)(object)max, _factory.NumberGenerator.GenerateLong);
+            if (type == typeof(float))
+                return (TNumeric)(object)GenerateRequiredNumericValue((float)(object)min, (float)(object)max, _factory.NumberGenerator.GenerateFloat);
+            if (type == typeof(double))
+                return (TNumeric)(object)GenerateRequiredNumericValue((double)(object)min, (double)(object)max, _factory.NumberGenerator.GenerateDouble);
+            if (type == typeof(decimal))
+                return (TNumeric)(object)GenerateRequiredNumericValue((decimal)(object)min, (decimal)(object)max, _factory.NumberGenerator.GenerateDecimal);
 
-            return _factory.DateGenerator.GenerateDateOnlyByInterval(from, to);
-        }
-        
-        public TimeOnly GenerateTimeOnlyByInterval(TimeOnly from, TimeOnly to)
-        {
-            if (from > to)
-                throw new InvalidRangeException();
-
-            return _factory.DateGenerator.GenerateTimeOnlyByInterval(from, to);
-        }
-        
-        public TimeSpan GenerateTimeSpanByInterval(TimeSpan from, TimeSpan to)
-        {
-            if (from > to)
-                throw new InvalidRangeException();
-
-            return _factory.DateGenerator.GenerateTimeSpanByInterval(from, to);
+            throw new UnknownNumericValueException(Error.UnknownNumericalValue, type.FullName!);
         }
 
-        public byte GenerateByte(byte min = byte.MinValue, byte max = byte.MaxValue)
+        #region Private methods
+
+        private TTimeValue GenerateByInterval<TTimeValue>(TTimeValue from, TTimeValue to, Func<TTimeValue, TTimeValue, TTimeValue> getTimeValue) 
+            where TTimeValue : IComparable<TTimeValue>
+        {
+            if (from.CompareTo(to) > 0)
+                throw new InvalidRangeException(Error.RangeError, from.ToString()!, to.ToString()!);
+
+            return getTimeValue(from, to);
+        }
+
+        private TType GenerateRequiredNumericValue<TType>(TType min, TType max, Func<TType, TType, TType> getNumericValue) 
+            where TType : INumber<TType>
         {
             if (min > max)
-                throw new InvalidRangeException();
+                throw new InvalidRangeException(Error.RangeError, min.ToString()!, max.ToString()!);
 
-            return _factory.NumberGenerator.GenerateByte(min, max);
+            return getNumericValue(min, max);
         }
 
-        public short GenerateShort(short min = short.MinValue, short max = short.MaxValue)
+        private Enum GenerateRequiredEnum(Type type)
         {
-            if (min > max)
-                throw new InvalidRangeException();
+            Array values = Enum.GetValues(type);
 
-            return _factory.NumberGenerator.GenerateShort(min, max);
-        }
-
-        public int GenerateInt(int min = int.MinValue, int max = int.MaxValue)
-        {
-            if (min > max)
-                throw new InvalidRangeException();
-
-            return _factory.NumberGenerator.GenerateInt(min, max);
-        }
-
-        public long GenerateLong(long min = long.MinValue, long max = long.MaxValue)
-        {
-            if (min > max)
-                throw new InvalidRangeException();
-
-            return _factory.NumberGenerator.GenerateLong(min, max);
-        }
-
-        public float GenerateFloat(float min = float.MinValue, float max = float.MaxValue)
-        {
-            if (min > max)
-                throw new InvalidRangeException();
-
-            return _factory.NumberGenerator.GenerateFloat(min, max);
-        }
-
-        public double GenerateDouble(double min = double.MinValue, double max = double.MaxValue)
-        {
-            if (min > max)
-                throw new InvalidRangeException();
-
-            return _factory.NumberGenerator.GenerateDouble(min, max);
-        }
-
-        public decimal GenerateDecimal(decimal min = decimal.MinValue, decimal max = decimal.MaxValue)
-        {
-            if (min > max)
-                throw new InvalidRangeException();
-
-            return _factory.NumberGenerator.GenerateDecimal(min, max);
-        }
-
-        private TObject[] GenerateRequiredArray<TObject>(int count = 10)
-        {
-            var array = new TObject[count];
-
-            for (int i = 0; i < count; i++)            
-                array[i] = (TObject)GenerateRequiredObject(typeof(TObject));
-            
-            return array;
-        }
-
-        private Collection<TObject> GenerateCollection<TObject>(int count = 10)
-        {
-            var collection = new Collection<TObject>();
-
-            for (int i = 0; i < count; i++)            
-                collection.Add((TObject)GenerateRequiredObject(typeof(TObject)));
-            
-            return collection;
-        }
-
-        private TEnum GenerateRequiredEnum<TEnum>()
-        {
-            Array values = Enum.GetValues(typeof(TEnum));
-
-            return (TEnum)values.GetValue(_factory.NumberGenerator.GenerateInt(values.Length))!;
+            return (Enum)values.GetValue(_factory.NumberGenerator.GenerateInt(0, values.Length))!;
         }
 
         private object GenerateRequiredObject(Type type)
         {
+            if (type.IsArray)
+                return GenerateRequiredCollection(type);
+
+            if (type.IsEnum)
+                return GenerateRequiredEnum(type);
+
+            if (type.IsGenericType)
+            {
+                var genericType = type.GetGenericTypeDefinition();
+
+                if (genericType == typeof(List<>) ||
+                    genericType == typeof(Queue<>) ||
+                    genericType == typeof(Stack<>) ||
+                    genericType == typeof(HashSet<>) ||
+                    genericType == typeof(LinkedList<>) ||
+                    genericType == typeof(SortedSet<>) ||
+                    genericType == typeof(IEnumerable<>))
+                {
+                    return GenerateRequiredCollection(type);
+                }
+            }
+
             if (type.IsPrimitive || type == typeof(string) || type.IsValueType)
                 return GeneratePrimitive(type);
 
@@ -168,23 +157,89 @@ namespace FakeLab
             {
                 if (!property.CanWrite)
                     continue;
-                
+
                 try
                 {
-                    object value = GenerateRequiredObject(property.PropertyType);
-
-                    if (value != null && !property.PropertyType.IsAssignableFrom(value.GetType()))
-                        throw new Exception($"Generated value type '{value.GetType().Name}' is not assignable to property type '{property.PropertyType.Name}'.");
-
-                    property.SetValue(instance, value);
+                    ProcessSetValue(property, instance);
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception();
-                }
+                catch (UnsupportedTypeException) { throw; }
+                catch (InvalidPropertyAssignmentException) { throw; }
+                catch (ObjectGenerationException) { throw; }
+                catch (Exception ex) { throw new Exception(ex.Message); }
             }
 
             return instance;
+        }
+
+        private object GenerateRequiredCollection(Type collectionType, int count = 10)
+        {
+            if (collectionType.IsArray)
+                return CreateObjectArray(collectionType, count);
+
+            if (collectionType.IsInterface && collectionType.IsGenericType &&
+                collectionType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            {
+                collectionType = typeof(List<>).MakeGenericType(collectionType.GetGenericArguments());
+            }
+
+            var genericArguments = collectionType.GetGenericArguments();
+
+            if (genericArguments.Length != 1)
+                throw new UnsupportedTypeException(Error.UnsupportedTypeError, collectionType.Name);
+            
+            Type itemType = genericArguments[0];
+            if (itemType == _currentType)
+                throw new ObjectGenerationException(Error.CyclicReferenceError, itemType.FullName!);
+
+            var collection = Activator.CreateInstance(collectionType)!;
+
+            var addMethod = (collectionType.GetMethod("Add") ??
+                            collectionType.GetMethod("Enqueue") ??
+                            collectionType.GetMethod("Push")) ??
+                            throw new UnsupportedTypeException(Error.UnsupportedTypeError, collectionType.FullName!);
+
+            for (int i = 0; i < count; i++)
+            {
+                var item = GenerateRequiredObject(itemType);
+                addMethod.Invoke(collection, [item]);
+            }
+
+            return collection;
+        }
+
+        private void ProcessSetValue(PropertyInfo property, object instance)
+        {
+            if (property.PropertyType.IsArray)
+            {
+                Type elementType = property.PropertyType.GetElementType();
+                var arrayValue = (Array)GenerateRequiredObject(property.PropertyType);
+                Array targetArray = Array.CreateInstance(elementType, arrayValue.Length);
+
+                for (int i = 0; i < arrayValue.Length; i++)                
+                    targetArray.SetValue(arrayValue.GetValue(i), i);
+
+                property.SetValue(instance, targetArray);
+            }
+            else
+            {
+                var value = GenerateRequiredObject(property.PropertyType);
+
+                if (value != null && !property.PropertyType.IsAssignableFrom(value.GetType()))
+                    throw new InvalidPropertyAssignmentException(Error.InvalidPropertyAssignment, value.GetType().Name, property.PropertyType.Name);
+
+                property.SetValue(instance, value);
+            }
+        }
+
+        private object[] CreateObjectArray(Type collectionType, int length)
+        {
+            var elem = collectionType.GetElementType();
+            var array = new object[length];
+
+            for (int i = 0; i < length; i++)
+                array[i] = GenerateRequiredObject(elem!);
+
+            return array;
         }
 
         private object GeneratePrimitive(Type type)
@@ -220,7 +275,9 @@ namespace FakeLab
             if (type == typeof(Guid))
                 return Guid.NewGuid();
 
-            throw new UnsupportedTypeException();
+            throw new UnsupportedTypeException(Error.UnsupportedTypeError, type.FullName!);
         }
+
+        #endregion
     }
 }

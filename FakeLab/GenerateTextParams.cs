@@ -1,6 +1,6 @@
 ﻿namespace FakeLab
 {
-    public enum GenerateStringParams
+    public enum GenerateTextParams
     {
         Uppercase,
         Lowercase,
