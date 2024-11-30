@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FakeLab.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+685ca9446827d76034259b88385ae77f1df6213f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53afa8192ed585995d3195a75bac5c4bd91d5a1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("FakeLab.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FakeLab.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

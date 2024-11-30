@@ -17,7 +17,7 @@ Generation of boolean, text, numeric, time, collection and user-defined data typ
     <PackageTags>data generation;test data;fake data;mock data;data mocking;unit testing;data seeding;random data;data faker;data generator;.NET testing;C# utilities;mock objects;object generation;collection generation;array generation;database seeding;random value generation;fake objects;.NET library;developer tools;test automation;prototype data;dynamic data creation;TDD tools;mock frameworks;.NET tools;model generator;testing utilities</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,10 +36,6 @@ Generation of boolean, text, numeric, time, collection and user-defined data typ
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dataset\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -47,16 +43,6 @@ Generation of boolean, text, numeric, time, collection and user-defined data typ
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<None Update="Dataset/dataset.json">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		<Pack>true</Pack>
-		<PackagePath>content</PackagePath>
-	</None>
     <None Update="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

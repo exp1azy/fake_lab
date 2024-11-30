@@ -28,11 +28,12 @@
             var usersHashSet = generator.GenerateHashSet<User>(1000);
             var usersEnumerable = generator.GenerateEnumerableCollection<User>(1000);
 
-            var myString = generator.GenerateString();
+            var myString = generator.GenerateString(20, GenerateStringParams.Randomly, false);
             var myName = generator.GenerateName();
             var mySurname = generator.GenerateSurname();
             var myAddress = generator.GenerateAddress();
             var myPhoneNumber = generator.GeneratePhoneNumber(7);
+            var myEmail = generator.GenerateEmail();
 
             var myInt = generator.GenerateNumericValue(int.MinValue, int.MaxValue);
             var myInt64 = generator.GenerateNumericValue(long.MinValue, long.MaxValue);

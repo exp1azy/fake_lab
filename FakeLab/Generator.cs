@@ -52,6 +52,12 @@ namespace FakeLab
         public string GenerateAddress() => _factory.TextGenerator.GenerateAddress();
 
         /// <summary>
+        /// Generates a random email address.
+        /// </summary>
+        /// <returns>A string containing a randomly generated email address.</returns>
+        public string GenerateEmail() => _factory.TextGenerator.GenerateEmail();
+
+        /// <summary>
         /// Generates a random <see cref="DateTime"/> value.
         /// </summary>
         public DateTime GenerateDateTime() => _factory.DateGenerator.GenerateDateTime();
