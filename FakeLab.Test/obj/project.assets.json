@@ -177,7 +177,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "FakeLab/1.0.0": {
+      "FakeLab/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -459,7 +459,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "FakeLab/1.0.0": {
+    "FakeLab/1.0.1": {
       "type": "project",
       "path": "../FakeLab/FakeLab.csproj",
       "msbuildProject": "../FakeLab/FakeLab.csproj"
@@ -467,7 +467,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "FakeLab >= 1.0.0"
+      "FakeLab >= 1.0.1"
     ]
   },
   "packageFolders": {

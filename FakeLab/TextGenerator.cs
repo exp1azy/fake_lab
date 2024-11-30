@@ -8,13 +8,15 @@ namespace FakeLab
         private readonly Random _random;
         private readonly IConfiguration _config;
 
-        private const string _path = @"Dataset/dataset.json";
+        private readonly string _path;
         private readonly int[] _digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         private readonly char[] _chars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
         
         internal TextGenerator(Random random)
         {
-            _random = random;       
+            _random = random;   
+            
+            _path = Path.Combine(AppContext.BaseDirectory, "Dataset", "dataset.json");
 
             _config = new ConfigurationBuilder()
                 .AddJsonFile(_path, optional: false, reloadOnChange: true)
