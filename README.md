@@ -73,4 +73,4 @@ FakeLab is built with flexibility and efficiency in mind, making it suitable for
 - **Learning and experimentation**: simplify testing for beginners with ready-to-use data generation tools.
 
 ## License
-FakeLab is distributed under the MIT License. See the LICENSE file for details.
+FakeLab is distributed under the MIT License. See the [LICENSE](https://github.com/exp1azy/fake_lab/blob/main/FakeLab/LICENSE.txt) file for details.
