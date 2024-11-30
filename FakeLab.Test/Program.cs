@@ -29,6 +29,10 @@
             var usersEnumerable = generator.GenerateEnumerableCollection<User>(1000);
 
             var myString = generator.GenerateString();
+            var myName = generator.GenerateName();
+            var mySurname = generator.GenerateSurname();
+            var myAddress = generator.GenerateAddress();
+            var myPhoneNumber = generator.GeneratePhoneNumber(7);
 
             var myInt = generator.GenerateNumericValue(int.MinValue, int.MaxValue);
             var myInt64 = generator.GenerateNumericValue(long.MinValue, long.MaxValue);

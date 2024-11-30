@@ -2,6 +2,7 @@
 using FakeLab.Resources;
 using System.Numerics;
 using System.Reflection;
+using System.Text;
 
 namespace FakeLab
 {
@@ -31,6 +32,24 @@ namespace FakeLab
         /// Generates a random character.
         /// </summary>
         public char GenerateCharacter() => _factory.TextGenerator.GenerateChar();
+
+        /// <summary>
+        /// Generates a random name.
+        /// </summary>
+        /// <returns>A randomly generated name as a string.</returns>
+        public string GenerateName() => _factory.TextGenerator.GenerateName();
+
+        /// <summary>
+        /// Generates a random surname.
+        /// </summary>
+        /// <returns>A randomly generated surname as a string.</returns>
+        public string GenerateSurname() => _factory.TextGenerator.GenerateSurname();
+
+        /// <summary>
+        /// Generates a random address.
+        /// </summary>
+        /// <returns>A randomly generated address as a string.</returns>
+        public string GenerateAddress() => _factory.TextGenerator.GenerateAddress();
 
         /// <summary>
         /// Generates a random <see cref="DateTime"/> value.
@@ -221,6 +240,25 @@ namespace FakeLab
                 throw new ArgumentException(Error.LengthArgumentError);
 
             return _factory.TextGenerator.GenerateString(length, generateParams, includeDigits);
+        }
+
+        /// <summary>
+        /// Generates a random phone number with the specified country code.
+        /// </summary>
+        /// <param name="code">The country code to be used for the phone number. Default is 1 (USA/Canada).</param>
+        /// <returns>A randomly generated phone number as a string, formatted with the country code.</returns>
+        public string GeneratePhoneNumber(int code = 1)
+        {
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append($"+{code}");
+
+            for (int i = 0; i < 10; i++)
+            {
+                var digit = _factory.NumberGenerator.GenerateInt(0, 9);
+                stringBuilder.Append(digit);
+            }
+
+            return stringBuilder.ToString();
         }
 
         /// <summary>
