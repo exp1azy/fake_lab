@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v9.0": {
       "FakeLab.Test/1.0.0": {
         "dependencies": {
-          "FakeLab": "1.1.0"
+          "FakeLab": "1.1.1"
         },
         "runtime": {
           "FakeLab.Test.dll": {}
         }
       },
-      "FakeLab/1.1.0": {
+      "FakeLab/1.1.1": {
         "runtime": {
           "FakeLab.dll": {
-            "assemblyVersion": "1.1.0",
-            "fileVersion": "1.1.0.0"
+            "assemblyVersion": "1.1.1",
+            "fileVersion": "1.1.1.0"
           }
         }
       }
@@ -30,7 +30,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FakeLab/1.1.0": {
+    "FakeLab/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

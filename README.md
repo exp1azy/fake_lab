@@ -7,7 +7,6 @@
 - **Comprehensive Type Support**: effortlessly generate data for primitive types, complex objects, arrays, collections and custom models.
 - **Customizable Data Generation**: configure ranges, patterns, and constraints for numeric, string, and date values to match your requirements.
 - **Built-in Support for Common Scenarios**: generate realistic names, addresses, emails, phone numbers, dates, and other frequently needed test data types.
-- **Integration-Ready**: FakeLab can output data for JSON, XML, or directly populate your domain models.
 - **Object Hierarchies**: automatically populate complex objects, including nested properties, based on their types and requirements.
 - **Performance-Oriented**: designed to handle large-scale data generation with efficiency.
 - **Developer-Friendly API**: clean, intuitive API that makes integration and usage straightforward, even for complex scenarios.

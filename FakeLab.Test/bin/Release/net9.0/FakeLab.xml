@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FakeLab</name>
+    </assembly>
+    <members>
+        <member name="T:FakeLab.GenerateStringParams">
+            <summary>
+            Specifies the parameters for generating string with different casing styles.
+            </summary>
+        </member>
+        <member name="F:FakeLab.GenerateStringParams.Uppercase">
+            <summary>
+            Generates string in uppercase letters.
+            </summary>
+        </member>
+        <member name="F:FakeLab.GenerateStringParams.Lowercase">
+            <summary>
+            Generates string in lowercase letters.
+            </summary>
+        </member>
+        <member name="F:FakeLab.GenerateStringParams.Randomly">
+            <summary>
+            Generates string with a random mixture of uppercase and lowercase letters.
+            </summary>
+        </member>
+        <member name="T:FakeLab.Generator">
+            <summary>
+            Provides functionality for generating random values of various types, including basic primitives and custom user-defined values.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FakeLab.Generator"/> class.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateBoolean">
+            <summary>
+            Generates a random boolean value.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateCharacter">
+            <summary>
+            Generates a random character.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateName">
+            <summary>
+            Generates a random name.
+            </summary>
+            <returns>A randomly generated name as a string.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateSurname">
+            <summary>
+            Generates a random surname.
+            </summary>
+            <returns>A randomly generated surname as a string.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateAddress">
+            <summary>
+            Generates a random address.
+            </summary>
+            <returns>A randomly generated address as a string.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateEmail">
+            <summary>
+            Generates a random email address.
+            </summary>
+            <returns>A string containing a randomly generated email address.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateDateTime">
+            <summary>
+            Generates a random <see cref="T:System.DateTime"/> value.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateDateOnly">
+            <summary>
+            Generates a random <see cref="T:System.DateOnly"/> value.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateTimeOnly">
+            <summary>
+            Generates a random <see cref="T:System.TimeOnly"/> value.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateTimeSpan">
+            <summary>
+            Generates a random <see cref="T:System.TimeSpan"/> value.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateDateTimeByInterval(System.DateTime,System.DateTime)">
+            <summary>
+            Generates a random <see cref="T:System.DateTime"/> value within the specified interval.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateDateOnlyByInterval(System.DateOnly,System.DateOnly)">
+            <summary>
+            Generates a random <see cref="T:System.DateOnly"/> value within the specified interval.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateTimeSpanByInterval(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Generates a random <see cref="T:System.TimeSpan"/> value within the specified interval.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateTimeOnlyByInterval(System.TimeOnly,System.TimeOnly)">
+            <summary>
+            Generates a random <see cref="T:System.TimeOnly"/> value within the specified interval.
+            </summary>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateEntity``1">
+            <summary>
+            Generates a new instance of the specified entity type <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TEntity">The type of the entity to generate.</typeparam>
+            <returns>A randomly generated instance of type <typeparamref name="TEntity"/>.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateEnum``1">
+            <summary>
+            Generates a random value of the specified enum type <typeparamref name="TEnum"/>.
+            </summary>
+            <typeparam name="TEnum">The enum type to generate a value for.</typeparam>
+            <returns>A randomly generated value of type <typeparamref name="TEnum"/>.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateArray``1(System.Int32)">
+            <summary>
+            Generates an array of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the array is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the array.</typeparam>
+            <param name="count">The number of elements to generate in the array. Defaults to 10.</param>
+            <returns>An array of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateMatrix``1(System.Int32)">
+            <summary>
+            Generates a 2-dimensional matrix of the specified type <typeparamref name="TObject"/> with a specified count of elements in each dimension.
+            Each element in the matrix is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the matrix.</typeparam>
+            <param name="count">The number of elements to generate in each dimension of the matrix. Defaults to 10.</param>
+            <returns>A 2-dimensional array (matrix) of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateEnumerableCollection``1(System.Int32)">
+            <summary>
+            Generates an enumerable collection of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the enumerable collection is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the enumerable collection.</typeparam>
+            <param name="count">The number of elements to generate in the collection. Defaults to 10.</param>
+            <returns>An enumerable collection of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateList``1(System.Int32)">
+            <summary>
+            Generates a list of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the list is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the list.</typeparam>
+            <param name="count">The number of elements to generate in the list. Defaults to 10.</param>
+            <returns>A list of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateQueue``1(System.Int32)">
+            <summary>
+            Generates a queue of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the queue is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the queue.</typeparam>
+            <param name="count">The number of elements to generate in the queue. Defaults to 10.</param>
+            <returns>A queue of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateStack``1(System.Int32)">
+            <summary>
+            Generates a stack of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the stack is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the stack.</typeparam>
+            <param name="count">The number of elements to generate in the stack. Defaults to 10.</param>
+            <returns>A stack of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateHashSet``1(System.Int32)">
+            <summary>
+            Generates a hash set of the specified type <typeparamref name="TObject"/> with a specified count of elements.
+            Each element in the hash set is populated with a random value.
+            </summary>
+            <typeparam name="TObject">The type of the objects in the hash set.</typeparam>
+            <param name="count">The number of elements to generate in the hash set. Defaults to 10.</param>
+            <returns>A hash set of randomly generated <typeparamref name="TObject"/> values.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateString(System.Int32,FakeLab.GenerateStringParams,System.Boolean)">
+            <summary>
+            Generates a random string of the specified length with optional parameters for text generation.
+            </summary>
+            <param name="length">The length of the generated string. Must be greater than 0. Defaults to 10.</param>
+            <param name="generateParams">The parameters that define how the string should be generated, such as random or predefined patterns. Defaults to <see cref="F:FakeLab.GenerateStringParams.Randomly"/>.</param>
+            <param name="includeDigits">Specifies whether digits should be included in the generated string. Defaults to true.</param>
+            <returns>A randomly generated string based on the specified parameters.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if the <paramref name="length"/> is less than or equal to 0.</exception>
+        </member>
+        <member name="M:FakeLab.Generator.GeneratePhoneNumber(System.Int32)">
+            <summary>
+            Generates a random phone number with the specified country code.
+            </summary>
+            <param name="code">The country code to be used for the phone number. Default is 1 (USA/Canada).</param>
+            <returns>A randomly generated phone number as a string, formatted with the country code.</returns>
+        </member>
+        <member name="M:FakeLab.Generator.GenerateNumericValue``1(``0,``0)">
+            <summary>
+            Generates a random numeric value of the specified type <typeparamref name="TNumeric"/> within the given range.
+            Supports byte, short, int, long, float, double, and decimal types.
+            </summary>
+            <typeparam name="TNumeric">The numeric type of the value to generate, must implement <see cref="T:System.Numerics.INumber`1"/>.</typeparam>
+            <param name="min">The minimum value of the range.</param>
+            <param name="max">The maximum value of the range.</param>
+            <returns>A random numeric value of type <typeparamref name="TNumeric"/> within the specified range.</returns>
+            <exception cref="T:FakeLab.Exceptions.InfiniteRangeException">Thrown if the range exceeds the numeric type's limits, specifically for float, double and decimal types.</exception>
+            <exception cref="T:FakeLab.Exceptions.InvalidDecimalRangeException">Thrown if the range for decimal is invalid.</exception>
+            <exception cref="T:FakeLab.Exceptions.UnknownNumericValueException">Thrown if an unsupported numeric type is provided.</exception>
+        </member>
+        <member name="T:FakeLab.Resources.Error">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.CastError">
+            <summary>
+              Ищет локализованную строку, похожую на Cannot cast value at [{0}, {1}] of type &apos;{2}&apos; to &apos;{3}&apos;..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.CyclicReferenceError">
+            <summary>
+              Ищет локализованную строку, похожую на Cyclic reference detected for type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.InfiniteError">
+            <summary>
+              Ищет локализованную строку, похожую на The range is outside the valid boundaries of the numeric type..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.InvalidDecimalRangeError">
+            <summary>
+              Ищет локализованную строку, похожую на Incorrect range of &apos;{0}&apos; and &apos;{1}&apos; values..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.InvalidPropertyAssignment">
+            <summary>
+              Ищет локализованную строку, похожую на Generated value type &apos;{0}&apos; is not assignable to property type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.LengthArgumentError">
+            <summary>
+              Ищет локализованную строку, похожую на Length cannot be less than or equal to zero..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.RangeError">
+            <summary>
+              Ищет локализованную строку, похожую на &apos;{0}&apos; cannot be greater than &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.UnknownNumericalValue">
+            <summary>
+              Ищет локализованную строку, похожую на Numerical value &apos;{0}&apos; is unknown..
+            </summary>
+        </member>
+        <member name="P:FakeLab.Resources.Error.UnsupportedTypeError">
+            <summary>
+              Ищет локализованную строку, похожую на Object type &apos;{0}&apos; is not supported..
+            </summary>
+        </member>
+    </members>
+</doc>

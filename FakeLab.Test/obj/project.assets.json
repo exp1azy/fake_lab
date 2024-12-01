@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "FakeLab/1.1.0": {
+      "FakeLab/1.1.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
@@ -15,7 +15,7 @@
     }
   },
   "libraries": {
-    "FakeLab/1.1.0": {
+    "FakeLab/1.1.1": {
       "type": "project",
       "path": "../FakeLab/FakeLab.csproj",
       "msbuildProject": "../FakeLab/FakeLab.csproj"
@@ -23,7 +23,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "FakeLab >= 1.1.0"
+      "FakeLab >= 1.1.1"
     ]
   },
   "packageFolders": {
