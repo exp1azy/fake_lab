@@ -1,6 +1,9 @@
 ﻿namespace FakeLab.Exceptions
 {
-    internal class InvalidDecimalRangeException(string error, params string[] args) : BaseGeneratorException(error, args)
+    internal class InvalidDecimalRangeException : BaseGeneratorException
     {
+        public InvalidDecimalRangeException(string error, params string[] args) : base(error, args)
+        {
+        }
     }
 }

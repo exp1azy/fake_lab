@@ -1,6 +1,9 @@
 ﻿namespace FakeLab.Exceptions
 {
-    internal class CastException(string error, params string[] args) : BaseGeneratorException(error, args)
+    internal class CastException : BaseGeneratorException
     {
+        public CastException(string error, params string[] args) : base(error, args)
+        {
+        }
     }
 }

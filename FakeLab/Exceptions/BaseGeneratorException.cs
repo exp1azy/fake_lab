@@ -1,6 +1,9 @@
 ﻿namespace FakeLab.Exceptions
 {
-    internal class BaseGeneratorException(string error, params string[] args) : Exception(string.Format(error, args))
+    internal class BaseGeneratorException : Exception
     {
+        public BaseGeneratorException(string error, params string[] args) : base(string.Format(error, args))
+        {
+        }
     }
 }

@@ -462,7 +462,7 @@ namespace FakeLab
             for (int i = 0; i < count; i++)
             {
                 var item = GenerateRequiredObject(itemType);
-                addMethod.Invoke(collection, [item]);
+                addMethod.Invoke(collection, new object[] { item });
             }
 
             return collection;

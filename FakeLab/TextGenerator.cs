@@ -6,7 +6,7 @@ namespace FakeLab
     {
         private readonly Random _random;
 
-        private readonly int[] _digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        private readonly int[] _digits = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         private readonly char[] _chars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
         
         internal TextGenerator(Random random)

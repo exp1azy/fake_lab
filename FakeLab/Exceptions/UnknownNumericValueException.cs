@@ -1,6 +1,9 @@
 ﻿namespace FakeLab.Exceptions
 {
-    internal class UnknownNumericValueException(string error, params string[] args) : BaseGeneratorException(error, args)
+    internal class UnknownNumericValueException : BaseGeneratorException
     {
+        public UnknownNumericValueException(string error, params string[] args) : base(error, args)
+        {
+        }
     }
 }
